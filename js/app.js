@@ -70,8 +70,12 @@ class Player {
 update() {
  if(this.y < 0) {
    this.x = 200;
-   this.y =380;
+   this.y =400;
    this.score +=100;
+   if (this.score >=2000) {
+     alert('Hurray! Your Score was  ' + player.score +'!!!!');
+     location.reload()
+   }
  }
 
  myScoreBoard.innerHTML = `Score: ${player.score}  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Lives: ${player.lives}`;
@@ -109,7 +113,7 @@ handleInput(keyInput) {
               break;
           case "down":
               //check for bottom, otherwise move down
-              if (this.y < 400) {
+              if (this.y < 300) {
                   this.y += 83;
               }
               break;
@@ -160,7 +164,7 @@ Key.prototype.render = function() {
 
 Key.prototype.update = function() {
 
-// Check for collisions enemy vs Player
+// Pick up collectibles
 if (player.x < this.x + 50 &&
   player.x + 37 > this.x &&
   player.y < this.y + 25 &&

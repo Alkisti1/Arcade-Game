@@ -1,30 +1,23 @@
-
+#Frogger Arcade Game
 ----------
 ### First Method
 1. Download the repository.
 2. Unzip the files.
 3. Open the "index.html" in your browser to play the game.
-### Second Method
-Directly open the follow link and play:
-[https://sunnymary.github.io/arcade-game/](https://sunnymary.github.io/arcade-game/)
 
 How to Play
 -----------
 ### Game Rules
 
-1. TARGET: Reach 1000 points to win!
+1. TARGET: Reach 2000 points to win!
 2. SCORE RULES:
-- Reach water: +50 pts
-- Catch a star: +100 pts
+- Reach water: +100 pts
+- Catch a key: +20 pts
 3. LIFE RULES:
-If hit by a bug, lose 1 life. You have a maximum of 5 lives.
+If hit by a bug, lose 1 life. You have a maximum of 3 lives.
 
 ### Operation
-1. START/RESTART:
-Click Start/Restart button or press "Enter" Key.
-2. PAUSE/CONTINUE:
-Click Pause/Continue button or press "space" Key.
-3. PLAYER:
+
 Use the keyboard arrows to move the player
 
 Udacity's Instruction
