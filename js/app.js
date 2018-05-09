@@ -1,3 +1,10 @@
+// Setup myScoreBoard
+var myScoreBoard;
+myScoreBoard=document.createElement('h3');
+document.body.appendChild(myScoreBoard);
+
+
+
 // Enemies our player must avoid
 var Enemy = function(x,y, speed) {
     // Variables applied to each of our instances go here,
@@ -35,6 +42,11 @@ if (player.x < this.x + 50 &&
     30 + player.y > this.y) {
     player.x = 200;
     player.y = 380;
+    player.lives -=1;
+    if (player.lives ===0) {
+      alert('Game Over! Your Score was  ' + player.score);
+      location.reload()
+    }
 }
 
     }
@@ -51,13 +63,20 @@ class Player {
   this.x=x;
   this.y=y;
   this.player = 'images/char-pink-girl.png';
+  this.score=0;
+  this.lives=3;
 }
 // This class requires an update(),
 update() {
  if(this.y < 0) {
    this.x = 200;
    this.y =380;
+   this.score +=100;
  }
+
+ myScoreBoard.innerHTML = `Score: ${player.score}  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Lives: ${player.lives}`;
+
+
 }
 //render() and
 render() {
@@ -110,7 +129,7 @@ enemyPosition.forEach(function(posY) {
 // Place the player object in a variable called player
 var player= new Player (200,400);
 
-
+// keyframes
 
 
 
@@ -127,3 +146,38 @@ var input=function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 };
  document.addEventListener('keyup', input);
+
+// keys our player must collect
+ var Key = function() {
+    this.sprite = 'images/Key.png';
+    this.x =0 + 101 * Math.floor(5 * Math.random());
+    this.y = 62 + 85.5 * Math.floor(3 * Math.random());
+};
+// Draw the keys on the screen
+Key.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+Key.prototype.update = function() {
+
+// Check for collisions enemy vs Player
+if (player.x < this.x + 50 &&
+  player.x + 37 > this.x &&
+  player.y < this.y + 25 &&
+  30 + player.y > this.y) {
+    player.x = 200;
+    player.y = 380;
+    this.x =0 + 101 * Math.floor(5 * Math.random());
+    this.y = 62 + 85.5 * Math.floor(3 * Math.random());
+  player.score +=20;
+
+  }
+}
+
+
+var allKeys=[];
+var keysPosition = [60,140,220];
+keysPosition.forEach(function(posX, posY) {
+  key= new Key(posX, posY, 100 + Math.floor(Math.random()*512));
+  allKeys.push(key);
+});

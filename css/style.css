@@ -1,3 +1,62 @@
 body {
     text-align: center;
 }
+
+h3 {
+  color: red;
+  width:200px;
+  margin: auto;
+  text-align: left;
+  padding: 10px;
+}
+
+/*
+ * Styles for congratulations modal
+ */
+ .winner-text,
+ .winner-title {
+   text-align: center;
+ }
+
+ .popup {
+   position: fixed;
+ 	top: 0;
+ 	bottom: 0;
+ 	left: center;
+ 	background: rgba(0, 0, 0, 0.7);
+ 	transition: opacity 500ms;
+ 	visibility: hidden;
+ 	opacity: 0;
+  width: 60%;
+ }
+
+ .popup:target {
+   visibility: visible;
+ 	opacity: 1;
+ }
+
+ .game-finish {
+   margin: 70px auto;
+ 	padding: 20px;
+ 	background: #ffffff;
+ 	border-radius: 5px;
+ 	width: 85%;
+ 	position: relative;
+ 	transition: all 5s ease-in-out;
+ }
+
+ .game-finish h2 {
+   font-size: 2rem;
+   margin-bottom: 0;
+ }
+
+ .game-finish .close {
+   position: absolute;
+ 	top: 20px;
+ 	right: 30px;
+ 	transition: all 200ms;
+ 	font-size: 30px;
+ 	font-weight: bold;
+ 	text-decoration: none;
+ 	color: #333;
+ }
